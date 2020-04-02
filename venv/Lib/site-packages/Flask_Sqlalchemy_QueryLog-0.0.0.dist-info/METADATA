@@ -1,0 +1,53 @@
+Metadata-Version: 2.1
+Name: Flask-Sqlalchemy-QueryLog
+Version: 0.0.0
+Summary: A personal package
+Home-page: https://github.com
+Author: spyc
+Author-email: unknown@gmail.com
+License: MIT
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Description-Content-Type: text/markdown
+Requires-Dist: Flask
+Requires-Dist: Flask-Sqlalchemy
+
+A personal package.
+
+#Initialization
+
+dance = DanceGoogleAuth()
+dance.init_app(app, 'index')
+//OR
+dance = DanceGoogleAuth(app, 'index')
+
+#Set login_handler
+
+def login_handler(email, name):
+    session['user_email'] = email
+    session['user_name'] = name
+    return True
+dance.set_login_handler(login_handler)
+
+#Signin/out Route
+
+dance.signin_url()
+dance.signout_url()
+
+#Decorator Requiring
+
+@dance.login_required()
+@dance.auth_required(lambda: session.get('user_email') == 'abc@gmail.com')
+
+#Complete Protect
+
+dance.all_login_required()
+dance.all_auth_required(lambda: session.get('user_email') == 'abc@gmail.com')
+
+#Required Env
+
+GOOGLE_OAUTH_CLIENT_ID
+GOOGLE_OAUTH_CLIENT_SECRET
+

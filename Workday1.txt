@@ -1,0 +1,1 @@
+I install Flask and Flask-SQLAlchemy in Pycharm and practice it successfully.
