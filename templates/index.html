@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+
+{% block head %}
+
+
+{% endblock %}
+
+{% block body %}
+<div class="content">
+    <h1> Admin</h1>
+    {% if tasks|length<1 %}
+    <h4>There is no book.Create one</h4>
+    {% else %}
+    <table>
+        <tr>
+            <th>Books</th>
+            <th>Added</th>
+            <th>Actions</th>
+        </tr>
+        {% for task in tasks %}
+        <tr>
+            <td>{{ task.content}}</td>
+            <td>{{task.date_created.date()}}</td>
+            <td>
+                <a href="/delete/{{task.id}}">DELETE</a>
+            <br>
+                <a href="/update/{{task.id}}">UPDATE</a>
+            </td>
+
+        </tr>
+        {% endfor %}
+    </table>
+    {% endif %}
+    <div class="form">
+    <form action="/" method="POST">
+        <input type="text" name="content" id="content">
+        <input type="submit"value="Add Books">
+    </form>
+</div>
+</div>
+
+{% endblock %}
