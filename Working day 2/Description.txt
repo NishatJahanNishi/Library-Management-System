@@ -1,0 +1,1 @@
+In this file, i made admin page where admin can add, remove and update the books and it will add corresponding to date and time. There is some issues to access flask-sqlalchemy. Inshallah i will fix it soon.
